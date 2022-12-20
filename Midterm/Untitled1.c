@@ -1,28 +1,43 @@
-#include <stdio.h>
-int binary_search(int arr[], int, int);
-
-int main() {
-   int arr1[10] = {1, 5, 7, 10, 12, 13, 16, 19, 20, 30};
-   int arr2[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-   printf("%d\n", binary_search(arr2, 10, 3)) ;
-   system("pause") ;
-   return 0 ;
+# include <stdio.h>
+void add(char arr1[], char arr2[]);
+int main(void)
+{
+	add("9314", "996");	
 }
 
-int binary_search(int arr[], int n, int key) {
-   int min = 0 ;
-   int max = n-1 ;
-   int mid ;
-   while(max >= min) {
-       mid = (min + max) / 2 ;
-       printf("%d\n", mid);
-       if(arr[mid] == key)
-           return  mid ;
-       else if(key < arr[mid])
-           min = mid + 1 ;
-       else
-           max = mid - 1 ;
-   }
-   return -1 ;
+void add(char arr1[], char arr2[])
+{
+	int a = strlen(arr1);
+	int b = strlen(arr2);
+	int g = a - b;
+	char n[a];
+	for(int i = 0; i < a; i++)
+		n[i] = '0';
+	int z = 0;
+	for(int i = g; i < a; i++)
+	{
+		n[i] = arr2[z];
+		z ++;
+	}
+	int k = 0;
+	int carry = 0;
+	int re[500];
+	for(int i = a - 1; i >= 0; i--)
+	{
+		int f = (arr1[i] - 48) + (n[i] - 48);
+		re[k] = (f + carry) % 10;
+		printf("%d\n", re[k]);
+		if(f >= 10)
+			carry = 1;
+		else
+			carry = 0;
+		k++;
+	}
+	if(carry == 1)
+	{
+		re[k + 1] = 1;
+		k ++; 
+	}
+	for(int i = 0; i < k; i++)
+		printf("%d", re[i]);
 }
-
