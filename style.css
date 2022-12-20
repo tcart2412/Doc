@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100%;
+    background-image: url("SnowMountain.jpg");
+    background-size: cover;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: aliceblue;
+    box-shadow: 0 5px 10px rgb(180, 176, 176);
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 25px;
+}
+
+.logo .menu-icon {
+    color:black;
+    font-size: 24px;
+    margin-right: 14px;
+    cursor: pointer;
+}
+
+.logo .logo-name {
+    color: black;
+    font-size: 22px;
+    font-weight:500;
+}
+
+nav .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 260px;
+    padding: 20px 0;
+    background-color: aliceblue;
+    box-shadow: 0 5px 10px rgb(180, 176, 176);
+    transition: all 0.4s ease;
+}
+
+nav.open .sidebar {
+    left: 0;
+}
+nav.open .sidebar{
+    left: 0;
+}
+.sidebar .sidebar-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 16px;
+}
+
+.list .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 12px;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    background-color: rgb(81, 100, 197);
+}
+
+.nav-link:hover .icon, 
+.nav-link:hover .link {
+    color: aliceblue;
+}
+
+.nav-link .icon {
+    margin-right: 14px;
+    font-size: 20px;
+    color: black;
+}
+
+.nav-link .link {
+    font-size: 16px;
+    color: black;
+    font-weight: 400;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 1000vh;
+    width: 200%;
+    opacity: 0;
+    background: rgb(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+nav.open ~ .overlay {
+    left: 260px;
+    opacity: 1;
+    pointer-events: auto;
+}
