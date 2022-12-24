@@ -1,8 +1,13 @@
 # include <stdio.h>
 void add(char arr1[], char arr2[]);
 int main(void)
-{
-	add("9314", "996");	
+{	
+	char arr1[500], arr2[500];
+	while(scanf("%s + %s", arr1, arr2))
+	{
+		add(arr1, arr2);
+		printf("%c", '\n');
+	}
 }
 
 void add(char arr1[], char arr2[])
@@ -24,10 +29,9 @@ void add(char arr1[], char arr2[])
 	int re[500];
 	for(int i = a - 1; i >= 0; i--)
 	{
-		int f = (arr1[i] - 48) + (n[i] - 48);
-		re[k] = (f + carry) % 10;
-		printf("%d\n", re[k]);
-		if(f >= 10)
+		int f = (arr1[i] - 48) + (n[i] - 48) + carry;
+		re[k] = f % 10;
+		if(f / 10 == 1)
 			carry = 1;
 		else
 			carry = 0;
@@ -35,9 +39,9 @@ void add(char arr1[], char arr2[])
 	}
 	if(carry == 1)
 	{
-		re[k + 1] = 1;
-		k ++; 
+		re[k] = 1;
+		k ++;
 	}
-	for(int i = 0; i < k; i++)
-		printf("%d", re[i]);
+	for(int i = 1; i <= k; i++)
+		printf("%d", re[k - i]);
 }
